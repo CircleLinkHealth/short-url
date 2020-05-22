@@ -425,7 +425,7 @@ class Builder
     {
         return ShortURL::create([
             'destination_url'                => $this->destinationUrl,
-            'default_short_url'              => config('app.url').'/short/'.$this->urlKey,
+            'default_short_url'              => rtrim(config('short-url.app_url')).'/'.ltrim(collect(explode(config('app.url'), $url))->filter()->first(), '/'),
             'url_key'                        => $this->urlKey,
             'single_use'                     => $this->singleUse,
             'track_visits'                   => $this->trackVisits,
