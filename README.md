@@ -44,6 +44,7 @@
         - [Tracking Visits](#tracking-visits)
             - [Default Tracking](#default-tracking)
             - [Tracking Fields](#tracking-fields)
+        - [Config Validation](#config-validation)
     - [Helper Methods](#helper-methods)
         - [Visits](#visits)
         - [Find by URL Key](#find-by-url-key)
@@ -70,7 +71,7 @@ A Laravel package that can be used for adding shortened URLs to your existing we
 The package has been developed and tested to work with the following minimum requirements:
 
 - PHP 7.2
-- Laravel 5.8
+- Laravel 6.0
 
 Short URL requires either the [BC Math](https://secure.php.net/manual/en/book.bc.php) or [GMP](https://secure.php.net/manual/en/book.gmp.php) PHP extensions in order to work.
 
@@ -425,6 +426,15 @@ For example, the snippet below shows how we could record all of the fields apart
         ],
     ],
 ```
+
+#### Config Validation
+By default, the values defined in the ``` short-url.php ``` config file are not validated. However, the library contains
+a validator that can be used to ensure that your values are safe to use. To enable the config validation, you can set the
+following option in the config:
+
+```
+'validate_config' => true,
+``` 
 
 ### Helper Methods
 #### Visits
